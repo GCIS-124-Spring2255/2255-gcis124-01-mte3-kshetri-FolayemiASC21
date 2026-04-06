@@ -3,8 +3,11 @@
 
 package mte3.knockknock;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Random;
 import java.util.Scanner;
@@ -14,19 +17,16 @@ public class KnockKnockClient {
     public static String SERVER = "localhost";
 
     public static void sendAndReceive(PrintWriter writer, String message, Scanner scanner) {
+        Socket socket = new Socket(SERVER, PORT);
+
         
-        // 
-        // 
-        // 
 
     } // sendAndReceive() method closed
     
 
     public static void joke(String who,String punchLine) throws IOException {
-        
-        //  
-        // 
-        // 
+
+        ServerSocket s1 = new ServerSocket(PORT);
 
     } // joke() method closed
 

@@ -17,17 +17,26 @@ public class KnockKnockClient {
     public static String SERVER = "localhost";
 
     public static void sendAndReceive(PrintWriter writer, String message, Scanner scanner) {
-        Socket socket = new Socket(SERVER, PORT);
-
-        
-
+        writer.println(message);
+        String response = scanner.nextLine();
+        System.out.println("Server: " + response);
     } // sendAndReceive() method closed
     
 
-    public static void joke(String who,String punchLine) throws IOException {
-
-        ServerSocket s1 = new ServerSocket(PORT);
-
+    public static void joke(String who, String punchLine) throws IOException {
+        Socket socket = new Socket(SERVER, PORT);
+        PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
+        Scanner scanner = new Scanner(new InputStreamReader(socket.getInputStream()));
+        
+        sendAndReceive(writer, "knockknock", scanner);
+        sendAndReceive(writer, "who's there?", scanner);
+        sendAndReceive(writer, who, scanner);
+        sendAndReceive(writer, who + " who?", scanner);
+        sendAndReceive(writer, punchLine, scanner);
+        
+        writer.close();
+        scanner.close();
+        socket.close();
     } // joke() method closed
 
     public static void main(String[] args) throws IOException {

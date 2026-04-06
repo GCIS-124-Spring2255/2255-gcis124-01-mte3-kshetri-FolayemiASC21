@@ -20,18 +20,23 @@ public class Converter {
             double temp = scanner.nextDouble();
 
             // (part 1) conversion from C to F
-            Inner() implements TempConvert {
+            TempConvert celsiusToFahrenheit = new TempConvert() {
                 @Override
                 public double convert(double temp) {
-                    return temp *9/5 + 32;
+                    return temp * 9 / 5 + 32;
                 }
             };
             
             // (part 2) conversion from F to C
-            
+            TempConvert fahrenheitToCelsius = new TempConvert() {
+                @Override
+                public double convert(double temp) {
+                    return (temp - 32) * 5 / 9;
+                }
+            };
             
             // (part 3) conversion from F to K 
-            TempConvert (temp) -> {(temp - 32) * 5/9};
+            TempConvert fahrenheitToKelvin = (temp) -> (temp - 32) * 5 / 9 + 273.15;
 
         }  // try { } block closed
 

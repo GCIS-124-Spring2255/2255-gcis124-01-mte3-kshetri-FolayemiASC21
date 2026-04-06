@@ -17,16 +17,21 @@ public class Converter {
         
         try(Scanner scanner = new Scanner(System.in)) {
             System.out.print("Please enter temperature (for conversion): ");
+            double temp = scanner.nextDouble();
 
             // (part 1) conversion from C to F
-            
+            Inner() implements TempConvert {
+                @Override
+                public double convert(double temp) {
+                    return temp *9/5 + 32;
+                }
+            };
             
             // (part 2) conversion from F to C
             
             
-            // (part 3) conversion from F to K
-            
-
+            // (part 3) conversion from F to K 
+            TempConvert (temp) -> {(temp - 32) * 5/9};
 
         }  // try { } block closed
 
